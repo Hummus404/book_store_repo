@@ -1,12 +1,11 @@
+CREATE TABLE IF NOT EXISTS films (
+id SERIAL PRIMARY KEY,
+title TEXT,
+genre TEXT,
+release_year INT
+);
+
 TRUNCATE films RESTART IDENTITY;
-
-
--- CREATE TABLE films (
--- id SERIAL PRIMARY KEY,
--- title TEXT,
--- genre TEXT,
--- release_year INT
--- );
 
 INSERT INTO films (title, genre, release_year) VALUES ('Iron Man', 'Superhero', 2008);
 INSERT INTO films (title, genre, release_year) VALUES ('Incredible Hulk', 'Superhero', 2008);

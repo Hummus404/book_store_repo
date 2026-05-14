@@ -50,9 +50,10 @@ jobs:
                 -e POSTGRES_USER='${{ secrets.POSTGRES_USER }}' \
                 -e POSTGRES_PASSWORD='${{ secrets.POSTGRES_PASSWORD }}' \
                 -e POSTGRES_DB='book_store' \
-                -d postgres:17
-              docker exec -i book_store_db psql -U postgres -d book_store < ~/book_store/seeds/books.sql
+                -d postgres:17    
             fi
+            docker exec -i book_store_db psql -U postgres -d book_store < ~/book_store/seeds/book_store.sql
+            docker exec -i book_store_db psql -U postgres -d book_store < ~/book_store/seeds/film_store.sql
 
       - name: Build Docker image
         uses: appleboy/ssh-action@v1.0.3

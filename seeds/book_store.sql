@@ -8,16 +8,14 @@
 
 -- Then, we recreate them
 
+-- no longer need to create table as we are just resetting values with truncate now. truncate just removes all entries in a table. i learnt RESTART IDENTITY which should reset the id to 0 
+CREATE TABLE IF NOT EXISTS books (
+    id SERIAL PRIMARY KEY,
+    title text,
+    author text
+);
 
 TRUNCATE TABLE books RESTART IDENTITY;
-
-
--- no longer need to create table as we are just resetting values with truncate now. truncate just removes all entries in a table. i learnt RESTART IDENTITY which should reset the id to 0 
--- CREATE TABLE books (
---     id SERIAL PRIMARY KEY,
---     title text,
---     author text
--- );
 
 -- Finally, we add any records that are needed for the tests to run
 INSERT INTO books (title, author) VALUES ('Learning Python', 'Umut Can');
