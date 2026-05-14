@@ -1,0 +1,43 @@
+<html>  
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<h1>BOOKS</h1>
+
+<!-- the coming soon table can go here -->
+
+<div class="current">
+    <h2>IN STOCK</h2>
+    <ul>
+        {% for book in books %}
+        <li class="book">
+
+            <div class="image-wrapper">
+                <img src="https://picsum.photos/seed/{{ book.title }}/200/300">
+                
+                <div class="info">
+                    <!-- DESCRIPTION GOES HERE WITH BOOK.DESCRIPTION FROM TABLE -->
+                </div>
+            </div>
+
+            {{ book.title }}<br> 
+            by {{ book.author }}
+            
+        </li>
+
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="new_book">
+<h2>New Book Form</h2>
+<form method="POST" action="/books">
+   <input type="text" name="title" placeholder="Title"><br>
+   <input type="text" name="author" placeholder="Author"><br>
+   <input type="submit" value="Submit">
+</form>
+</div>
+
+</body>
+</html>

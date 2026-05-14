@@ -1,0 +1,44 @@
+<!-- 4. In your Book Store app, create a new table called "films" (it's branching out into a new market) and then test drive a page that shows users a list of films 🌶️🌶️🌶️ -->
+
+<html>  
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<h1>FILMS</h1>
+
+<!-- the coming soon table can go here -->
+
+<div class="current">
+    <h2>CURRENTLY AVAILABLE</h2>
+    <ul>
+        {% for film in films %}
+        <li class="film">
+
+            <div class="image-wrapper">
+                <img src="https://picsum.photos/seed/{{ film.title }}/200/300">
+                
+                <div class="info">
+                    DESCRIPTION GOES HERE WITH FILM.DESCRIPTION FROM TABLE
+                </div>
+            </div>
+
+            Title: {{ film.title }}<br> 
+            Genre: {{ film.genre }}<br>
+            Release year: {{ film.release_year }}
+        </li>
+                {% endfor %}
+    </ul>
+
+</div>
+<div class="new_film_form">
+<form action="/films" method="POST">
+    <input type="text" name="title" placeholder="Title">
+    <input type="text" name="genre" placeholder="Genre">
+    <input type="text" name="release_year" placeholder="Release year">
+    <button type="submit">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>
